@@ -1,16 +1,8 @@
-Text can be **bold**, _italic_, or ~~strikethrough~~.
+# CS 180 - Projects
 
-[Link to another page](./another-page.html).
+All projects up to date for Fall2024 CS180.
 
-There should be whitespace between paragraphs.
-
-There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
-
-# Header 1
-
-This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
-
-## Header 2
+## Project 1: Images of the Russian Empire -- Colorizing the Prokudin-Gorskii Photo Collection
 
 > This is a blockquote following a header.
 >
