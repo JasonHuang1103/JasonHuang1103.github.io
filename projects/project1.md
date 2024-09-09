@@ -1,7 +1,5 @@
----
-layout: no_theme
-title: Project 1: Images of the Russian Empire - Colorizing the Prokudin-Gorskii Photo Collection
----
+# Project 1: Images of the Russian Empire - Colorizing the Prokudin-Gorskii Photo Collection
+
 ## Overview
 The goal of this assignment is to take the digitized Prokudin-Gorskii glass plate images and, using image processing techniques, automatically produce a color image with as few visual artifacts as possible. In order to do this, I extracted the three color channel images, place them on top of each other, and align them so that they form a single RGB color image.
 
