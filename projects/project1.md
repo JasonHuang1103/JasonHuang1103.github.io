@@ -8,14 +8,13 @@ For the low resolution image, I initially computed the alignment with brute forc
 
 <div style="display: flex; justify-content: space-around;">
   <figure>
-    <img src="images/cathedral_off.jpg" alt="Image 1" style="width: 30%;">
+    <img src="images/cathedral_off.jpg" alt="cathedral_off.jpg" style="width: 30%;">
     <figcaption>without border crop</figcaption>
   </figure>
   <figure>
-    <img src="images/cathedral_perfect.jpg" alt="Image 2" style="width: 30%;">
+    <img src="images/cathedral_perfect.jpg" alt="cathedral_perfect.jpg" style="width: 30%;">
     <figcaption>with border crop</figcaption>
   </figure>
 </div>
-
 
 For the high resolution image, I utilized image pyramid, where the image is downscaled to a certain level and applying the alignment process from the most-coarse level. By default, I set the scaling factor to 2 and levels to 5. This works reasonably well for most of the high resolution image, except for a few such as the image with label "emir". This in turn was resolved by utilizing sobel edge detection, which computes the gradient of the image intensity at each pixel, emphasizing regions where the intensity changes sharply.
