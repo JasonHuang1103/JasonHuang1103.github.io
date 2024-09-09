@@ -2,4 +2,8 @@
 
 All projects up to date for Fall2024 CS180.
 
-## Project 1: Images of the Russian Empire - Colorizing the Prokudin-Gorskii Photo Collection
+### [Project 1: Images of the Russian Empire - Colorizing the Prokudin-Gorskii Photo Collection](projects/project1.md)
+
+
+
+
