@@ -1,5 +1,7 @@
-# Project 1: Images of the Russian Empire - Colorizing the Prokudin-Gorskii Photo Collection
-
+---
+layout: no_theme
+title: Project 1: Images of the Russian Empire - Colorizing the Prokudin-Gorskii Photo Collection
+---
 ## Overview
 The goal of this assignment is to take the digitized Prokudin-Gorskii glass plate images and, using image processing techniques, automatically produce a color image with as few visual artifacts as possible. In order to do this, I extracted the three color channel images, place them on top of each other, and align them so that they form a single RGB color image.
 
@@ -8,11 +10,11 @@ For the low resolution image, I initially computed the alignment with brute forc
 
 <div style="display: flex; justify-content: space-around;">
   <figure>
-    <img src="../images/cathedral_off.jpg" alt="cathedral_off.jpg" style="width: 30%;">
+    <img src="../images/cathedral_off.jpg" alt="cathedral_off.jpg" style="width: 50%;">
     <figcaption>without border crop</figcaption>
   </figure>
   <figure>
-    <img src="../images/cathedral_perfect.jpg" alt="cathedral_perfect.jpg" style="width: 30%;">
+    <img src="../images/cathedral_perfect.jpg" alt="cathedral_perfect.jpg" style="width: 50%;">
     <figcaption>with border crop</figcaption>
   </figure>
 </div>
@@ -21,11 +23,11 @@ For the high resolution image, I utilized image pyramid, where the image is down
 
 <div style="display: flex; justify-content: space-around;">
   <figure>
-    <img src="../images/emir_off.jpg" alt="emir_off.jpg" style="width: 30%;">
+    <img src="../images/emir_off.jpg" alt="emir_off.jpg" style="width: 50%;">
     <figcaption>without sobel edge detection</figcaption>
   </figure>
   <figure>
-    <img src="../images/emir_perfect.jpg" alt="emir_perfect.jpg" style="width: 30%;">
+    <img src="../images/emir_perfect.jpg" alt="emir_perfect.jpg" style="width: 50%;">
     <figcaption>with sobel edge detection</figcaption>
   </figure>
 </div>
