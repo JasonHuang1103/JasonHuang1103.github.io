@@ -1,16 +1,20 @@
+/* Caption styling */
 .caption {
-    font-size: 18px;
-    color: #333; /* You can adjust the color and size as needed */
-    background-color: rgba(255, 255, 255, 0.6); /* Optional: background for contrast */
-    padding: 5px;
+    font-size: 16px;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 8px;
     border-radius: 5px;
-    line-height: 1.5; /* Adjust line height for better spacing */
+    text-align: center;
+    margin-top: 5px;
+    line-height: 1.5;
 }
 
+/* Image container styling for example images */
 .image-container {
     position: relative;
     display: inline-block;
-    text-align: center; /* Aligns the figcaption inside the image container */
+    text-align: center;
 }
 
 .image-container img {
@@ -18,30 +22,17 @@
     display: block;
 }
 
-.centered-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white; /* Change the color to suit your background */
-    font-size: 18px; /* Adjust the font size as needed */
-    background-color: rgba(0, 0, 0, 0.5); /* Optional: background color for better readability */
-    padding: 5px 10px;
-    border-radius: 5px; /* Optional: round the corners of the text background */
-}
-
-
-
+/* Slider container */
 .slider-container {
     position: relative;
     width: 100%;
     margin: auto;
-    overflow: hidden; /* Hide extra images */
+    overflow: hidden;
 }
 
 .slider-wrapper {
     width: 100%;
-    overflow: hidden; /* Hide overflow content */
+    overflow: hidden;
 }
 
 .slider {
@@ -50,15 +41,17 @@
 }
 
 .slide {
-    min-width: 33.33%; /* Show 3 images at once, each image takes 1/3rd */
+    min-width: 33.33%;
     box-sizing: border-box;
     padding: 10px;
+    text-align: center;
 }
 
 .slide img {
     width: 100%;
 }
 
+/* Button for slider controls */
 button {
     position: absolute;
     top: 50%;
@@ -72,11 +65,11 @@ button {
 }
 
 .prev {
-    left: 0px;
+    left: 10px;
 }
 
 .next {
-    right: 0px;
+    right: 10px;
 }
 
 button:hover {
