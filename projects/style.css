@@ -23,7 +23,6 @@
 
 .slide img {
     width: 100%;
-    border-radius: 10px; /* Optional, for rounded corners */
 }
 
 button {
@@ -39,11 +38,11 @@ button {
 }
 
 .prev {
-    left: 0;
+    left: -40px;
 }
 
 .next {
-    right: 0;
+    right: -40px;
 }
 
 button:hover {
