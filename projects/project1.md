@@ -29,13 +29,8 @@ For the high resolution image, I utilized image pyramid, where the image is down
 </div>
 
 ## Image Gallery
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Gallery Slider</title>
-    <link rel="stylesheet" href="style.css">
-</head>
 <body>
+<link rel="stylesheet" href="style.css">
 <div class="slider-container">
     <button class="prev" onclick="moveSlides(-1)">&#10094;</button>
     <div class="slider-wrapper">
