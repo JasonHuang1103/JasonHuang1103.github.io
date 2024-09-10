@@ -63,11 +63,11 @@ button {
 }
 
 .prev {
-    left: -20px;
+    left: 20px;
 }
 
 .next {
-    right: 20px;
+    right: -20px;
 }
 
 button:hover {
