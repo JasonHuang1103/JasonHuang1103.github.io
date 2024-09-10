@@ -56,7 +56,7 @@ For the high resolution image, I utilized image pyramid, where the image is down
             <div class="slide"><img src="../images/harvesters_color.jpg" alt="Image 4">
                 <div class="caption">
                     <span>Harvesters</span><br>
-                    <span>(Offset: G=[60, 18], R=[124, 11])</span>
+                    <span>(Offset: G=[60, 18], R=[125, 11])</span>
                 </div>
             </div>
             <div class="slide"><img src="../images/icon_color.jpg" alt="Image 5">
@@ -74,7 +74,7 @@ For the high resolution image, I utilized image pyramid, where the image is down
             <div class="slide"><img src="../images/melons_color.jpg" alt="Image 7">
                 <div class="caption">
                     <span>Melons</span><br>
-                    <span>(Offset: G=[80, 10], R=[124, 15])</span>
+                    <span>(Offset: G=[80, 10], R=[176, 12])</span>
                 </div>
             </div>
             <div class="slide"><img src="../images/monastery_color.jpg" alt="Image 8">
@@ -92,13 +92,13 @@ For the high resolution image, I utilized image pyramid, where the image is down
             <div class="slide"><img src="../images/sculpture_color.jpg" alt="Image 10">
                 <div class="caption">
                     <span>Sculpture</span><br>
-                    <span>(Offset: G=[33, -10], R=[124, -25])</span>
+                    <span>(Offset: G=[33, -10], R=[139, -26])</span>
                 </div>
             </div>
             <div class="slide"><img src="../images/self_portrait_color.jpg" alt="Image 11">
                 <div class="caption">
                     <span>Self Portrait</span><br>
-                    <span>(Offset: G=[80, 30], R=[124, 39])</span>
+                    <span>(Offset: G=[80, 30], R=[175, 37])</span>
                 </div>
             </div>
             <div class="slide"><img src="../images/three_generations_color.jpg" alt="Image 12">
