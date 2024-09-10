@@ -40,7 +40,6 @@ For the high resolution image, I utilized image pyramid, where the image is down
             <div class="slide"><img src="../images/emir_color.jpg" alt="Image 3"></div>
             <div class="slide"><img src="../images/harvesters_color.jpg" alt="Image 4"></div>
             <div class="slide"><img src="../images/icon_color.jpg" alt="Image 5"></div>
-            <div class="slide"><img src="../images/icon_color.jpg" alt="Image 5"></div>
             <div class="slide"><img src="../images/lady_color.jpg" alt="Image 6"></div>
             <div class="slide"><img src="../images/melons_color.jpg" alt="Image 7"></div>
             <div class="slide"><img src="../images/monastery_color.jpg" alt="Image 8"></div>

@@ -25,7 +25,7 @@
 
 .slider-container {
     position: relative;
-    width: 80%;
+    width: 90%;
     margin: auto;
     overflow: hidden; /* Hide extra images */
 }
@@ -47,7 +47,7 @@
 }
 
 .slide img {
-    width: 150%;
+    width: 100%;
 }
 
 button {
