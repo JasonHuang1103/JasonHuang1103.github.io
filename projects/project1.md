@@ -35,21 +35,48 @@ For the high resolution image, I utilized image pyramid, where the image is down
     <button class="prev" onclick="moveSlides(-1)">&#10094;</button>
     <div class="slider-wrapper">
         <div class="slider">
-            <div class="slide"><img src="../images/cathedral_color.jpg" alt="Image 1"></div>
-            <div class="slide"><img src="../images/church_color.jpg" alt="Image 2"></div>
-            <div class="slide"><img src="../images/emir_color.jpg" alt="Image 3"></div>
-            <div class="slide"><img src="../images/harvesters_color.jpg" alt="Image 4"></div>
-            <div class="slide"><img src="../images/icon_color.jpg" alt="Image 5"></div>
-            <div class="slide"><img src="../images/lady_color.jpg" alt="Image 6"></div>
-            <div class="slide"><img src="../images/melons_color.jpg" alt="Image 7"></div>
-            <div class="slide"><img src="../images/monastery_color.jpg" alt="Image 8"></div>
-            <div class="slide"><img src="../images/onion_church_color.jpg" alt="Image 9"></div>
-            <div class="slide"><img src="../images/sculpture_color.jpg" alt="Image 10"></div>
-            <div class="slide"><img src="../images/self_portrait_color.jpg" alt="Image 11"></div>
-            <div class="slide"><img src="../images/three_generations_color.jpg" alt="Image 12"></div>
-            <div class="slide"><img src="../images/tobolsk_color.jpg" alt="Image 13"></div>
-            <div class="slide"><img src="../images/train_color.jpg" alt="Image 14"></div>
-            <!-- Add more slides as needed -->
+            <div class="slide"><img src="../images/cathedral_color.jpg" alt="Image 1">
+                <div class="caption">Cathedral (Displacement: G=[5, 2], R=[12, 3])</div>
+            </div>
+            <div class="slide"><img src="../images/church_color.jpg" alt="Image 2">
+                <div class="caption">Church (Displacement: G=[25, 4], R=[58, -4])</div>
+            </div>
+            <div class="slide"><img src="../images/emir_color.jpg" alt="Image 3">
+                <div class="caption">Emir (Displacement: G=[49, 24], R=[107, 40])</div>
+            </div>
+            <div class="slide"><img src="../images/harvesters_color.jpg" alt="Image 4">
+                <div class="caption">Harvesters (Displacement: G=[60, 18], R=[124, 11])</div>
+            </div>
+            <div class="slide"><img src="../images/icon_color.jpg" alt="Image 5">
+                <div class="caption">Icon (Displacement: G=[40, 16], R=[89, 23])</div>
+            </div>
+            <div class="slide"><img src="../images/lady_color.jpg" alt="Image 6">
+                <div class="caption">Lady (Displacement: G=[57, 9], R=[120, 13])</div>
+            </div>
+            <div class="slide"><img src="../images/melons_color.jpg" alt="Image 7">
+                <div class="caption">Melons (Displacement: G=[80, 10], R=[124, 15])</div>
+            </div>
+            <div class="slide"><img src="../images/monastery_color.jpg" alt="Image 8">
+                <div class="caption">Monastery (Displacement: G=[-3, 2], R=[3, 2])</div>
+            </div>
+            <div class="slide"><img src="../images/onion_church_color.jpg" alt="Image 9">
+                <div class="caption">Onion Church (Displacement: G=[52, 26], R=[108, 35])</div>
+            </div>
+            <div class="slide"><img src="../images/sculpture_color.jpg" alt="Image 10">
+                <div class="caption">Sculpture (Displacement: G=[33, -10], R=[124, -25])</div>
+            </div>
+            <div class="slide"><img src="../images/self_portrait_color.jpg" alt="Image 11">
+                <div class="caption">Self Portrait (Displacement: G=[80, 30], R=[124, 39])</div>
+            </div>
+            <div class="slide"><img src="../images/three_generations_color.jpg" alt="Image 12">
+                <div class="caption">Three Generations (Displacement: G=[54, 12], R=[110, 8])</div>
+            </div>
+            <div class="slide"><img src="../images/tobolsk_color.jpg" alt="Image 13">
+                <div class="caption">Tobolsk (Displacement: G=[3, 3], R=[6, 3])</div>
+            </div>
+            <div class="slide"><img src="../images/train_color.jpg" alt="Image 14">
+                <div class="caption">Train (Displacement: G=[42, 9], R=[90, 33])</div>
+            </div>
         </div>
     </div>
     <button class="next" onclick="moveSlides(1)">&#10095;</button>
