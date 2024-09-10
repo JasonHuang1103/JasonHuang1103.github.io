@@ -44,21 +44,21 @@ The full list of images are as follow:
     <button class="prev" onclick="moveSlides(-1)">&#10094;</button>
     <div class="slider-wrapper">
         <div class="slider">
-            <div class="slide"><img src="cathedral_color.jpg" alt="Image 1"></div>
-            <div class="slide"><img src="church_color.jpg" alt="Image 2"></div>
-            <div class="slide"><img src="emir_color.jpg" alt="Image 3"></div>
-            <div class="slide"><img src="harvesters_color.jpg" alt="Image 4"></div>
-            <div class="slide"><img src="icon_color.jpg" alt="Image 5"></div>
-            <div class="slide"><img src="icon_color.jpg" alt="Image 5"></div>
-            <div class="slide"><img src="lady_color.jpg" alt="Image 6"></div>
-            <div class="slide"><img src="melons_color.jpg" alt="Image 7"></div>
-            <div class="slide"><img src="monastery_color.jpg" alt="Image 8"></div>
-            <div class="slide"><img src="onion_church_color.jpg" alt="Image 9"></div>
-            <div class="slide"><img src="sculpture_color.jpg" alt="Image 10"></div>
-            <div class="slide"><img src="self_portrait_color.jpg" alt="Image 11"></div>
-            <div class="slide"><img src="three_generations_color.jpg" alt="Image 12"></div>
-            <div class="slide"><img src="tobolsk_color.jpg" alt="Image 13"></div>
-            <div class="slide"><img src="train_color.jpg" alt="Image 14"></div>
+            <div class="slide"><img src="../images/cathedral_color.jpg" alt="Image 1"></div>
+            <div class="slide"><img src="../images/church_color.jpg" alt="Image 2"></div>
+            <div class="slide"><img src="../images/emir_color.jpg" alt="Image 3"></div>
+            <div class="slide"><img src="../images/harvesters_color.jpg" alt="Image 4"></div>
+            <div class="slide"><img src="../images/icon_color.jpg" alt="Image 5"></div>
+            <div class="slide"><img src="../images/icon_color.jpg" alt="Image 5"></div>
+            <div class="slide"><img src="../images/lady_color.jpg" alt="Image 6"></div>
+            <div class="slide"><img src="../images/melons_color.jpg" alt="Image 7"></div>
+            <div class="slide"><img src="../images/monastery_color.jpg" alt="Image 8"></div>
+            <div class="slide"><img src="../images/onion_church_color.jpg" alt="Image 9"></div>
+            <div class="slide"><img src="../images/sculpture_color.jpg" alt="Image 10"></div>
+            <div class="slide"><img src="../images/self_portrait_color.jpg" alt="Image 11"></div>
+            <div class="slide"><img src="../images/three_generations_color.jpg" alt="Image 12"></div>
+            <div class="slide"><img src="../images/tobolsk_color.jpg" alt="Image 13"></div>
+            <div class="slide"><img src="../images/train_color.jpg" alt="Image 14"></div>
             <!-- Add more slides as needed -->
         </div>
     </div>
