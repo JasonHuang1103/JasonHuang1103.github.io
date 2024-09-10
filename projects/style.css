@@ -1,0 +1,51 @@
+.slider-container {
+    position: relative;
+    width: 80%;
+    margin: auto;
+    overflow: hidden; /* Hide extra images */
+}
+
+.slider-wrapper {
+    width: 100%;
+    overflow: hidden; /* Hide overflow content */
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 33.33%; /* Show 3 images at once, each image takes 1/3rd */
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.slide img {
+    width: 100%;
+    border-radius: 10px; /* Optional, for rounded corners */
+}
+
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}

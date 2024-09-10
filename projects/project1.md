@@ -8,11 +8,11 @@ For the low resolution image, I initially computed the alignment with brute forc
 
 <div style="display: flex; justify-content: space-around;">
   <figure>
-    <img src="../images/cathedral_off.jpg" alt="cathedral_off.jpg" style="width: 50%;">
+    <img src="../images/examples/cathedral_off.jpg" alt="cathedral_off.jpg" style="width: 50%;">
     <figcaption>without border crop</figcaption>
   </figure>
   <figure>
-    <img src="../images/cathedral_perfect.jpg" alt="cathedral_perfect.jpg" style="width: 50%;">
+    <img src="../images/examples/cathedral_perfect.jpg" alt="cathedral_perfect.jpg" style="width: 50%;">
     <figcaption>with border crop</figcaption>
   </figure>
 </div>
@@ -21,11 +21,49 @@ For the high resolution image, I utilized image pyramid, where the image is down
 
 <div style="display: flex; justify-content: space-around;">
   <figure>
-    <img src="../images/emir_off.jpg" alt="emir_off.jpg" style="width: 50%;">
+    <img src="../images/examples/emir_off.jpg" alt="emir_off.jpg" style="width: 100%;">
     <figcaption>without sobel edge detection</figcaption>
   </figure>
   <figure>
-    <img src="../images/emir_perfect.jpg" alt="emir_perfect.jpg" style="width: 50%;">
+    <img src="../images/examples/emir_perfect.jpg" alt="emir_perfect.jpg" style="width: 100%;">
     <figcaption>with sobel edge detection</figcaption>
   </figure>
 </div>
+
+The full list of images are as follow:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery Slider</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="slider-container">
+    <button class="prev" onclick="moveSlides(-1)">&#10094;</button>
+    <div class="slider-wrapper">
+        <div class="slider">
+            <div class="slide"><img src="cathedral_color.jpg" alt="Image 1"></div>
+            <div class="slide"><img src="church_color.jpg" alt="Image 2"></div>
+            <div class="slide"><img src="emir_color.jpg" alt="Image 3"></div>
+            <div class="slide"><img src="harvesters_color.jpg" alt="Image 4"></div>
+            <div class="slide"><img src="icon_color.jpg" alt="Image 5"></div>
+            <div class="slide"><img src="icon_color.jpg" alt="Image 5"></div>
+            <div class="slide"><img src="lady_color.jpg" alt="Image 6"></div>
+            <div class="slide"><img src="melons_color.jpg" alt="Image 7"></div>
+            <div class="slide"><img src="monastery_color.jpg" alt="Image 8"></div>
+            <div class="slide"><img src="onion_church_color.jpg" alt="Image 9"></div>
+            <div class="slide"><img src="sculpture_color.jpg" alt="Image 10"></div>
+            <div class="slide"><img src="self_portrait_color.jpg" alt="Image 11"></div>
+            <div class="slide"><img src="three_generations_color.jpg" alt="Image 12"></div>
+            <div class="slide"><img src="tobolsk_color.jpg" alt="Image 13"></div>
+            <div class="slide"><img src="train_color.jpg" alt="Image 14"></div>
+            <!-- Add more slides as needed -->
+        </div>
+    </div>
+    <button class="next" onclick="moveSlides(1)">&#10095;</button>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
