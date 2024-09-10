@@ -1,3 +1,9 @@
+.caption {
+    position: relative;
+    display: inline-block;
+    text-align: center; /* Aligns the figcaption inside the image container */
+}
+
 .image-container {
     position: relative;
     display: inline-block;
