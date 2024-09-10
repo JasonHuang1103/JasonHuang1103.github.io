@@ -1,15 +1,10 @@
-/* Center the caption within the image */
 .caption {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 18px; /* Adjust font size as needed */
-    color: white;
-    background-color: rgba(0, 0, 0, 0.6); /* Optional background for readability */
-    padding: 10px;
+    font-size: 18px;
+    color: #333; /* You can adjust the color and size as needed */
+    background-color: rgba(255, 255, 255, 0.6); /* Optional: background for contrast */
+    padding: 5px;
     border-radius: 5px;
-    text-align: center;
+    line-height: 1.5; /* Adjust line height for better spacing */
 }
 
 .image-container {
