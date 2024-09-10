@@ -5,7 +5,7 @@ The goal of this assignment is to take the digitized Prokudin-Gorskii glass plat
 
 ## Approach
 For the low resolution image, I initially computed the alignment with brute force, calculating the score between the base channel and displacement channel with normalized cross correlation, but the result isn't quite promising. The issue is resolved after I removed a percentage (default to 10%) of the border to prevent aligning the edges of the images.
-<div style="display: flex; justify-content: space-around;">
+<div class="image-container" style="display: flex; justify-content: space-around;">
   <figure>
     <img src="../images/examples/cathedral_off.jpg" alt="cathedral_off.jpg" style="width: 100%;">
     <figcaption>without border crop</figcaption>
@@ -17,7 +17,7 @@ For the low resolution image, I initially computed the alignment with brute forc
 </div>
 
 For the high resolution image, I utilized image pyramid, where the image is downscaled to a certain level and applying the alignment process from the most-coarse level. By default, I set the scaling factor to 2 and levels to 5. This works reasonably well for most of the high resolution image, except for a few such as the image with label "emir". This in turn was resolved by utilizing sobel edge detection, which computes the gradient of the image intensity at each pixel, emphasizing regions where the intensity changes sharply.
-<div style="display: flex; justify-content: space-around;">
+<div class="image-container" style="display: flex; justify-content: space-around;">
   <figure>
     <img src="../images/examples/emir_off.jpg" alt="emir_off.jpg" style="width: 100%;">
     <figcaption>without sobel edge detection</figcaption>
@@ -62,4 +62,3 @@ The full list of images are as follow:
 </div>
 <script src="script.js"></script>
 </body>
-</html>

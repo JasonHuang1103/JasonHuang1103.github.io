@@ -1,3 +1,28 @@
+.image-container {
+    position: relative;
+    display: inline-block;
+    text-align: center; /* Aligns the figcaption inside the image container */
+}
+
+.image-container img {
+    width: 100%;
+    display: block;
+}
+
+.centered-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white; /* Change the color to suit your background */
+    font-size: 18px; /* Adjust the font size as needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Optional: background color for better readability */
+    padding: 5px 10px;
+    border-radius: 5px; /* Optional: round the corners of the text background */
+}
+
+#-------------------#
+
 .slider-container {
     position: relative;
     width: 80%;
@@ -38,11 +63,11 @@ button {
 }
 
 .prev {
-    left: -40px;
+    left: -20px;
 }
 
 .next {
-    right: -40px;
+    right: 20px;
 }
 
 button:hover {
