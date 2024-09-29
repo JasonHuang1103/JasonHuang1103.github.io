@@ -81,23 +81,25 @@ The process involves first aligning two input images, which is critical for prop
   </figure>
 </div>
 
-<div class="image-container" style="display: flex; justify-content: space-around;">
+<div class="image-container" style="display: flex; justify-content: space-around; margin-bottom: 50px;">
   <figure style="display: flex; justify-content: space-around; align-items: center; width: 100%;">
     <div style="text-align: center; padding: 0 10px; flex-basis: 33.33%; max-width: 33.33%; height: 33vw;">
       <img src="../images/project2_images/data/beach_1.jpg" style="width: 100%; height: 100%; object-fit: contain;">
-      <figcaption>Beach 1</figcaption>
+      <figcaption style="margin: 5px 0 0;">Beach 1</figcaption>
     </div>
     <div style="text-align: center; padding: 0 10px; flex-basis: 33.33%; max-width: 33.33%; height: 33vw;">
       <img src="../images/project2_images/data/beach_2.jpg" style="width: 100%; height: 100%; object-fit: contain;">
-      <figcaption>Beach 2</figcaption>
+      <figcaption style="margin: 5px 0 0;">Beach 2</figcaption>
     </div>
     <div style="text-align: center; padding: 0 10px; flex-basis: 33.33%; max-width: 33.33%; height: 33vw;">
       <img src="../images/project2_images/result/part_2.2.2_beach.jpg" style="width: 100%; height: 100%; object-fit: contain;">
-      <figcaption>Hybrid Beach</figcaption>
+      <figcaption style="margin: 5px 0 0;">Hybrid Beach</figcaption>
     </div>
   </figure>
 </div>
-Below is the Fourier transform analysis condcuted on the beach images to visualize the hybrid process. As we can see, after extracting the image's respective frequency, the plot appears more distinct in spectrum. This demonstrates the frequency distribution of the images and how they contribute to the hybrid effect.
+<p>
+    Below is the Fourier transform analysis condcuted on the beach images to visualize the hybrid process. As we can see, after extracting the image's respective frequency, the plot appears more distinct in spectrum. This demonstrates the frequency distribution of the images and how they contribute to the hybrid effect.
+</p>
 <div class="image-container" style="display: flex; justify-content: space-around;">
   <figure style="display: flex; justify-content: space-around; align-items: center; width: 100%;">
     <div style="text-align: center; padding: 0 10px; flex-basis: 40%; max-width: 40%; height: 40vw;">
