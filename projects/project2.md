@@ -38,21 +38,18 @@ In this section, we use the unsharp masking technique to sharpen a blurry image.
 <div class="image-container" style="display: flex; justify-content: space-around;">
   <figure>
     <img src="../images/project2_images/result/part_2.1.1_taj.jpg" style="width: 100%;">
-  <figcaption>taj</figcaption>
   </figure>
 </div>
 The fact that sharpening does not equate to increasing image resolution is evident in the second image - bars, which is blurry and only objects that were already clear to certain extent like the cans inside have displayed noticeable improvements.
 <div class="image-container" style="display: flex; justify-content: space-around;">
   <figure>
     <img src="../images/project2_images/result/part_2.1.2_bars.jpg" style="width: 100%;">
-  <figcaption>bars (blurry image)</figcaption>
   </figure>
 </div>
 Furthermore, image resharpening can risk losing detail information. For the flower image below, which was already initially sharpened, appear to have bolder outlines. This effect gets increasingly apparent if we repeat the process a few more times as can be seen from the one below.
 <div class="image-container" style="display: flex; justify-content: space-around;">
   <figure>
     <img src="../images/project2_images/result/part_2.1.3_flower.jpg" style="width: 100%;">
-  <figcaption>flower (sharp image)</figcaption>
   </figure>
 </div>
 
@@ -229,7 +226,7 @@ Blending using irregular mask is more difficult but similar in essence. For the 
   </figure>
 </div>
 
-
+Overall, a key takeaway is the role of Gaussian blur and frequency in image processing (especially blending). By applying Gaussian filters, we can effectively highlight the key components of an image, which can then help us extract the information for edge detection. Furthermore, we can effectively smooth images, extract high-frequency edges, and create seamless transitions between images in tasks like hybrid image creation and multiresolution blending. It is through this project had I better understand the essence of image in digital representation - that they are just numbers - Prof. Efros in the introductory lecture. During the process of work, a significant amount of time was allocated to adjusting the parameters (e.g. channels, resolution, dimension, frequency, kernel, standard deviation (of Gaussian), etc), as a change to any of them may cause the whole pipeline produce a completely different result.
 
 <link rel="stylesheet" href="style.css">
 <script src="script.js"></script>
