@@ -66,15 +66,15 @@ In this part, we create hybrid images that change their display based on the vie
 The process involves first aligning two input images, which is critical for proper perception. After alignment, we apply a low-pass filter (a 2D Gaussian filter) to one image to extract its smooth, low frequency components. For the second image, we apply a high-pass filter by subtracting its Gaussian-filtered version from the original to extract the high frequency details. The two filtered images are combined to produce the hybrid image.
 <div class="image-container" style="display: flex; justify-content: space-around;">
   <figure style="display: flex; justify-content: space-around; align-items: center; width: 100%;">
-    <div style="text-align: center; padding: 0 10px; flex-basis: 33.33%; max-width: 33.33%; height: 33vw;">
+    <div style="text-align: center; padding: 0 10px; flex-basis: 33.33%; max-width: 33.33%;">
       <img src="../images/project2_images/data/statue_1.jpg" style="width: 100%; height: 100%; object-fit: contain;">
       <figcaption>Statue 1</figcaption>
     </div>
-    <div style="text-align: center; padding: 0 10px; flex-basis: 33.33%; max-width: 33.33%; height: 33vw;">
+    <div style="text-align: center; padding: 0 10px; flex-basis: 33.33%; max-width: 33.33%;">
       <img src="../images/project2_images/data/statue_2.jpg" style="width: 100%; height: 100%; object-fit: contain;">
       <figcaption>Statue 2</figcaption>
     </div>
-    <div style="text-align: center; padding: 0 10px; flex-basis: 33.33%; max-width: 33.33%; height: 33vw;">
+    <div style="text-align: center; padding: 0 10px; flex-basis: 33.33%; max-width: 33.33%;">
       <img src="../images/project2_images/result/part_2.2.1_statue.jpg" style="width: 100%; height: 100%; object-fit: contain;">
       <figcaption>Hybrid Statue</figcaption>
     </div>
@@ -83,15 +83,15 @@ The process involves first aligning two input images, which is critical for prop
 
 <div class="image-container" style="display: flex; justify-content: space-around; margin-bottom: 50px;">
   <figure style="display: flex; justify-content: space-around; align-items: center; width: 100%;">
-    <div style="text-align: center; padding: 0 10px; flex-basis: 33.33%; max-width: 33.33%; height: 33vw;">
+    <div style="text-align: center; padding: 0 10px; flex-basis: 33.33%; max-width: 33.33%;">
       <img src="../images/project2_images/data/beach_1.jpg" style="width: 100%; height: 100%; object-fit: contain;">
       <figcaption style="margin: 5px 0 0;">Beach 1</figcaption>
     </div>
-    <div style="text-align: center; padding: 0 10px; flex-basis: 33.33%; max-width: 33.33%; height: 33vw;">
+    <div style="text-align: center; padding: 0 10px; flex-basis: 33.33%; max-width: 33.33%;">
       <img src="../images/project2_images/data/beach_2.jpg" style="width: 100%; height: 100%; object-fit: contain;">
       <figcaption style="margin: 5px 0 0;">Beach 2</figcaption>
     </div>
-    <div style="text-align: center; padding: 0 10px; flex-basis: 33.33%; max-width: 33.33%; height: 33vw;">
+    <div style="text-align: center; padding: 0 10px; flex-basis: 33.33%; max-width: 33.33%;">
       <img src="../images/project2_images/result/part_2.2.2_beach.jpg" style="width: 100%; height: 100%; object-fit: contain;">
       <figcaption style="margin: 5px 0 0;">Hybrid Beach</figcaption>
     </div>
@@ -102,11 +102,11 @@ The process involves first aligning two input images, which is critical for prop
 </p>
 <div class="image-container" style="display: flex; justify-content: space-around;">
   <figure style="display: flex; justify-content: space-around; align-items: center; width: 100%;">
-    <div style="text-align: center; padding: 0 10px; flex-basis: 40%; max-width: 40%; height: 40vw;">
+    <div style="text-align: center; padding: 0 10px; flex-basis: 40%; max-width: 40%;">
       <img src="../images/project2_images/result/part_2.2.3_ft_beach_1.jpg" style="width: 100%; height: 100%; object-fit: contain;">
       <figcaption>Beach 1 (unfiltered)</figcaption>
     </div>
-    <div style="text-align: center; padding: 0 10px; flex-basis: 40%; max-width: 40%; height: 40vw;">
+    <div style="text-align: center; padding: 0 10px; flex-basis: 40%; max-width: 40%;">
       <img src="../images/project2_images/result/part_2.2.4_ft_beach_2.jpg" style="width: 100%; height: 100%; object-fit: contain;">
       <figcaption>Beach 2 (unfiltered)</figcaption>
     </div>
@@ -115,11 +115,11 @@ The process involves first aligning two input images, which is critical for prop
 
 <div class="image-container" style="display: flex; justify-content: space-around;">
   <figure style="display: flex; justify-content: space-around; align-items: center; width: 100%;">
-    <div style="text-align: center; padding: 0 10px; flex-basis: 40%; max-width: 40%; height: 40vw;">
+    <div style="text-align: center; padding: 0 10px; flex-basis: 40%; max-width: 40%;">
       <img src="../images/project2_images/result/part_2.2.5_ft_low_freq_beach_1.jpg" style="width: 100%; height: 100%; object-fit: contain;">
       <figcaption>Beach 1 (low frequency)</figcaption>
     </div>
-    <div style="text-align: center; padding: 0 10px; flex-basis: 40%; max-width: 40%; height: 40vw;">
+    <div style="text-align: center; padding: 0 10px; flex-basis: 40%; max-width: 40%;">
       <img src="../images/project2_images/result/part_2.2.6_ft_high_freq_beach_2.jpg" style="width: 100%; height: 100%; object-fit: contain;">
       <figcaption>Beach 2 (high frequency)</figcaption>
     </div>
@@ -128,7 +128,7 @@ The process involves first aligning two input images, which is critical for prop
 
 <div class="image-container" style="display: flex; justify-content: space-around;">
   <figure style="display: flex; justify-content: space-around; align-items: center; width: 100%;">
-    <div style="text-align: center; padding: 0 10px; flex-basis: 60%; max-width: 60%; height: 60vw;">
+    <div style="text-align: center; padding: 0 10px; flex-basis: 60%; max-width: 60%;">
       <img src="../images/project2_images/result/part_2.2.7_ft_hybrid.jpg" style="width: 100%; height: 100%; object-fit: contain;">
       <figcaption>Hybrid Beach</figcaption>
     </div>
@@ -142,10 +142,10 @@ In this section, we implement Gaussian and Laplacian stacks to prepare for multi
 The first row displays the gaussian stacks, and the second row displays the laplacian stacks, both from level 0 to 4.
 <div class="image-container" style="display: flex; flex-direction: column; align-items: center; width: 100%;">
   <figure style="width: 100%;">
-    <div style="text-align: center; padding: 0px; width: 100%; height: 100vw;">
+    <div style="text-align: center; padding: 0px; width: 100%;">
       <img src="../images/project2_images/result/part_2.3.1_apple.jpg" style="width: 100%; height: 100%; object-fit: contain;">
     </div>
-    <div style="text-align: center; padding: 0px; width: 100%; height: 100vw;">
+    <div style="text-align: center; padding: 0px; width: 100%;">
       <img src="../images/project2_images/result/part_2.3.2_orange.jpg" style="width: 100%; height: 100%; object-fit: contain;">
     </div>
   </figure>
@@ -156,15 +156,15 @@ The first row displays the gaussian stacks, and the second row displays the lapl
 Here, we utilize result from previous section to implement multiresolution blending. This approach follows the ideas presented in Burt and Adelson’s 1983 paper. To blend two images, we first create Gaussian and Laplacian stacks for both input images (e.g., the apple and orange) and for the blending mask. Using the stacks, we blend the images by combining their Laplacian levels, guided by the Gaussian-blurred mask at each level. This results in a seamless blend where the transition between the two images is smooth and natural (though a part of the natural transition requires the two image being a plausible combination). After creating the blended Laplacian stack, we reconstruct the final blended image by adding the levels back together, starting from the highest to the lowest.
 <div class="image-container" style="display: flex; justify-content: space-around;">
   <figure style="display: flex; justify-content: space-around; align-items: center; width: 100%;">
-    <div style="text-align: center; padding: 0 10px; flex-basis: 33.33%; max-width: 33.33%; height: 33vw;">
+    <div style="text-align: center; padding: 0 10px; flex-basis: 33.33%; max-width: 33.33%;">
       <img src="../images/project2_images/data/apple.jpg" style="width: 100%; height: 100%; object-fit: contain;">
       <figcaption>Apple</figcaption>
     </div>
-    <div style="text-align: center; padding: 0 10px; flex-basis: 33.33%; max-width: 33.33%; height: 33vw;">
+    <div style="text-align: center; padding: 0 10px; flex-basis: 33.33%; max-width: 33.33%;">
       <img src="../images/project2_images/data/orange.jpg" style="width: 100%; height: 100%; object-fit: contain;">
       <figcaption>Orange</figcaption>
     </div>
-    <div style="text-align: center; padding: 0 10px; flex-basis: 33.33%; max-width: 33.33%; height: 33vw;">
+    <div style="text-align: center; padding: 0 10px; flex-basis: 33.33%; max-width: 33.33%;">
       <img src="../images/project2_images/result/part_2.4.1_oraple_mask.jpg" style="width: 100%; height: 100%; object-fit: contain;">
       <figcaption>Mask</figcaption>
     </div>
@@ -172,7 +172,7 @@ Here, we utilize result from previous section to implement multiresolution blend
 </div>
 <div class="image-container" style="display: flex; justify-content: space-around;">
   <figure style="display: flex; justify-content: space-around; align-items: center; width: 100%;">
-    <div style="text-align: center; padding: 10 0px; flex-basis: 60%; max-width: 60%; height: 60vw;">
+    <div style="text-align: center; padding: 10 0px; flex-basis: 60%; max-width: 60%;">
       <img src="../images/project2_images/result/part_2.4.2_oraple.jpg" style="width: 100%; height: 100%; object-fit: contain;">
       <figcaption>Oraple</figcaption>
     </div>
@@ -181,15 +181,15 @@ Here, we utilize result from previous section to implement multiresolution blend
 
 <div class="image-container" style="display: flex; justify-content: space-around;">
   <figure style="display: flex; justify-content: space-around; align-items: center; width: 100%;">
-    <div style="text-align: center; padding: 0 10px; flex-basis: 33.33%; max-width: 33.33%; height: 33vw;">
+    <div style="text-align: center; padding: 0 10px; flex-basis: 33.33%; max-width: 33.33%;">
       <img src="../images/project2_images/data/fo.jpg" style="width: 100%; height: 100%; object-fit: contain;">
       <figcaption>Image 1</figcaption>
     </div>
-    <div style="text-align: center; padding: 0 10px; flex-basis: 33.33%; max-width: 33.33%; height: 33vw;">
+    <div style="text-align: center; padding: 0 10px; flex-basis: 33.33%; max-width: 33.33%;">
       <img src="../images/project2_images/data/mo.jpg" style="width: 100%; height: 100%; object-fit: contain;">
       <figcaption>Image 2</figcaption>
     </div>
-    <div style="text-align: center; padding: 0 10px; flex-basis: 33.33%; max-width: 33.33%; height: 33vw;">
+    <div style="text-align: center; padding: 0 10px; flex-basis: 33.33%; max-width: 33.33%;">
       <img src="../images/project2_images/result/part_2.4.3_fomo_mask.jpg" style="width: 100%; height: 100%; object-fit: contain;">
       <figcaption>Mask</figcaption>
     </div>
@@ -197,7 +197,7 @@ Here, we utilize result from previous section to implement multiresolution blend
 </div>
 <div class="image-container" style="display: flex; justify-content: space-around;">
   <figure style="display: flex; justify-content: space-around; align-items: center; width: 100%;">
-    <div style="text-align: center; padding: 10 0px; flex-basis: 40%; max-width: 40%; height: 60vw;">
+    <div style="text-align: center; padding: 10 0px; flex-basis: 40%; max-width: 40%;">
       <img src="../images/project2_images/result/part_2.4.4_fomo.jpg" style="width: 100%; height: 100%; object-fit: contain;">
     </div>
   </figure>
@@ -205,15 +205,15 @@ Here, we utilize result from previous section to implement multiresolution blend
 Blending using irregular mask is more difficult but similar in essence. For the result below, I used an external tool to crop out the image I want to blend and convert it to pure binary (i.e. mask).
 <div class="image-container" style="display: flex; justify-content: space-around;">
   <figure style="display: flex; justify-content: space-around; align-items: center; width: 100%;">
-    <div style="text-align: center; padding: 0 10px; flex-basis: 33.33%; max-width: 33.33%; height: 33vw;">
+    <div style="text-align: center; padding: 0 10px; flex-basis: 33.33%; max-width: 33.33%;">
       <img src="../images/project2_images/data/cat.jpg" style="width: 100%; height: 100%; object-fit: contain;">
       <figcaption>Cat</figcaption>
     </div>
-    <div style="text-align: center; padding: 0 10px; flex-basis: 33.33%; max-width: 33.33%; height: 33vw;">
+    <div style="text-align: center; padding: 0 10px; flex-basis: 33.33%; max-width: 33.33%;">
       <img src="../images/project2_images/data/box.jpg" style="width: 100%; height: 100%; object-fit: contain;">
       <figcaption>Box</figcaption>
     </div>
-    <div style="text-align: center; padding: 0 10px; flex-basis: 33.33%; max-width: 33.33%; height: 33vw;">
+    <div style="text-align: center; padding: 0 10px; flex-basis: 33.33%; max-width: 33.33%;">
       <img src="../images/project2_images/result/part_2.4.5_cat_mask.jpg" style="width: 100%; height: 100%; object-fit: contain;">
       <figcaption>Mask</figcaption>
     </div>
@@ -221,7 +221,7 @@ Blending using irregular mask is more difficult but similar in essence. For the 
 </div>
 <div class="image-container" style="display: flex; justify-content: space-around;">
   <figure style="display: flex; justify-content: space-around; align-items: center; width: 100%;">
-    <div style="text-align: center; padding: 10 0px; flex-basis: 60%; max-width: 60%; height: 60vw;">
+    <div style="text-align: center; padding: 10 0px; flex-basis: 60%; max-width: 60%;">
       <img src="../images/project2_images/result/part_2.4.6_cat_drumstick.jpg" style="width: 100%; height: 100%; object-fit: contain;">
       <figcaption>Cat drumstick</figcaption>
     </div>
