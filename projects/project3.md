@@ -59,7 +59,7 @@ For this part, I used the FEI neutral expression dataset, which consists of 200 
 </div>
 3. Compute the average face of the dataset by warping all faces to the average shape and averaging the pixel values.
 <div style="display: flex; justify-content: center; width: 100%;">
-    <figure style="width: 60%; text-align: center; margin: 0 auto;">
+    <figure style="width: 40%; text-align: center; margin: 0 auto;">
         <img src="../images/project3_images/result/part4_average_face.jpg" alt="average face" style="width: 100%;">
         <figcaption>Average Face of 200 neutral expressions</figcaption>
     </figure>
@@ -84,7 +84,7 @@ The Jason-to-average image looks a bit odd, mainly due to the number of points a
 ## Part 5. Caricatures: Extrapolating from the mean
 Finally, I computed the caricature for my face by adding the difference of my face and the average face onto my face, resulting in an image that emphasises my features.
 <div style="display: flex; justify-content: center; width: 100%;">
-    <figure style="width: 50%; text-align: center; margin: 0;">
+    <figure style="width: 40%; text-align: center; margin: 0;">
         <img src="../images/project3_images/result/part5_jason4_caricature_0.75.jpg" alt="caricature face" style="width: 100%; margin: 10px;">
         <figcaption>alpha = 0.75</figcaption>
     </figure>
