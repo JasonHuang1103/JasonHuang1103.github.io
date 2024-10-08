@@ -33,6 +33,8 @@ For the output, I created a 60 frames gif as follow:
 <div style="display: flex; justify-content: center; width: 100%;">
     <img src="../images/project3_images/result/part3_morph_sequence.gif" alt="morph" style="width: 50%; margin: 10px;">
 </div>
+![Uploading part3_morph_sequence.gif…]()
+
 
 ## Part 4. The "Mean face" of a population
 For this part, I used the FEI neutral expression dataset, which consists of 200 images (100 male and 100 female). The process involves:
