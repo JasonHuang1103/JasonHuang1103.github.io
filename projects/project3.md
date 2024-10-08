@@ -30,6 +30,9 @@ With the original images and the mid-way face image at hand, we can conduct the 
 2) For interpolation, both parameters lie in the range [0,1]. They are the only parameters that will vary from frame to frame in the animation. For the starting frame, they will both equal 0, and for the ending frame, they will both equal 1.
 
 For the output, I created a 60 frames gif as follow:
+<div style="display: flex; justify-content: center; width: 100%;">
+    <img src="../images/project3_images/result/part3_morph_sequence.gif" alt="morph" style="width: 50%; margin: 10px;">
+</div>
 ![Uploading part3_morph_sequence.gif…]()
 
 
