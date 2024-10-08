@@ -17,17 +17,17 @@ to create:
 
 ## Part 2. Computing the "Mid-way Face"
 This part involves multiple steps. To create the mid-way face image, I first
-1. computed the average shape (i.e. average of each corresponding keypoints pair from images A and B).
-2. Then, each triangle from image A and image B should be warped into the corresponding triangle in the average shape. This is done by computing an affine transformation matrix and use the inverse affine warp to bring the pixels from both images into the average shape.
-3. Finally, the color also has to be averaged to create the mid-way face.
+1) computed the average shape (i.e. average of each corresponding keypoints pair from images A and B).
+2) Then, each triangle from image A and image B should be warped into the corresponding triangle in the average shape. This is done by computing an affine transformation matrix and use the inverse affine warp to bring the pixels from both images into the average shape.
+3) Finally, the color also has to be averaged to create the mid-way face.
 <div style="display: flex; justify-content: center; width: 100%;">
     <img src="../images/project3_images/result/part2_midway_face.jpg" alt="Mid-way face" style="width: 50%; margin: 10px;">
 </div>
 
 ## Part 3. The Morph Sequence
 With the original images and the mid-way face image at hand, we can conduct the morphing process by:
-1. first warp im1 and im2 into an intermediate shape configuration controlled by warp_frac as per the suggestion, and then cross-dissolved according to dissolve_frac.
-2. For interpolation, both parameters lie in the range [0,1]. They are the only parameters that will vary from frame to frame in the animation. For the starting frame, they will both equal 0, and for the ending frame, they will both equal 1.
+1) first warp im1 and im2 into an intermediate shape configuration controlled by warp_frac as per the suggestion, and then cross-dissolved according to dissolve_frac.
+2) For interpolation, both parameters lie in the range [0,1]. They are the only parameters that will vary from frame to frame in the animation. For the starting frame, they will both equal 0, and for the ending frame, they will both equal 1.
 
 For the output, I created a 60 frames gif as follow:
 <div style="display: flex; justify-content: center; width: 100%;">
@@ -36,8 +36,8 @@ For the output, I created a 60 frames gif as follow:
 
 ## Part 4. The "Mean face" of a population
 For this part, I used the FEI neutral expression dataset, which consists of 200 images (100 male and 100 female). The process involves:
-1. Compute the average face shape, which is done by averaging all keypoints across the dataset.
-2. Morph each face in the dataset into the average shape and display some examples.
+1) Compute the average face shape, which is done by averaging all keypoints across the dataset.
+2) Morph each face in the dataset into the average shape and display some examples.
 
 1a:
 <div style="display: flex; width: 100%;">
@@ -57,14 +57,14 @@ For this part, I used the FEI neutral expression dataset, which consists of 200 
     <img src="../images/project3_images/result/part4_3a_triangulation.jpg" alt="3a tri" style="width: 33%; margin: 10px;">
     <img src="../images/project3_images/result/part4_3a_to_average.jpg" alt="3a average" style="width: 33%; margin: 10px;">
 </div>
-3. Compute the average face of the dataset by warping all faces to the average shape and averaging the pixel values.
+3) Compute the average face of the dataset by warping all faces to the average shape and averaging the pixel values.
 <div style="display: flex; justify-content: center; width: 100%;">
     <figure style="width: 40%; text-align: center; margin: 0 auto;">
         <img src="../images/project3_images/result/part4_average_face.jpg" alt="average face" style="width: 100%;">
         <figcaption>Average Face of 200 neutral expressions</figcaption>
     </figure>
 </div>
-4. Warp my face into the average geometry and the average face into your face's geometry.
+4) Warp my face into the average geometry and the average face into your face's geometry.
 <div style="display: flex; width: 100%;">
     <figure style="width: 33%; margin: 10px; text-align: center;">
         <img src="../images/project3_images/data/jason4.jpg" alt="jason part4" style="width: 100%;">
