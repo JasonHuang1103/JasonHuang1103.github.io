@@ -228,11 +228,11 @@
 
     <h4>[Impl: Training Loop]</h4>
     <p>
-        Putting everyuthing together, we can produce the following result. Here we used parameters recommended and obtained based on our experience from Part 1: \(num\_samples=64\), \(hidden\_dim=256\), \(num\_layers=10\), \(pe\_freq\_pos=10\), \(pe\_freq\_dir=4\), and \(learning\_rate=5e-4\), resulting in a final PSNR of \(23.69 dB\).
+        Putting everyuthing together, we can produce the following result. Here we used parameters recommended and obtained based on our experience from Part 1: \(num\_samples=64\), \(hidden\_dim=256\), \(num\_layers=10\), \(pe\_freq\_pos=10\), \(pe\_freq\_dir=4\), and \(learning\_rate=5e-4\), resulting in a final PSNR of \(23.19 dB\).
     </p>
     <img src="../images/project6_images/result/nerf_valid_curve.png" alt="NeRF curve" style="display: block; margin: 20px auto; width: 60%;">
     <img src="../images/project6_images/result/nerf_prediction.png" alt="NeRF prediction" style="display: block; margin: 20px auto; width: 80%;">
-    Note: For the sake of producing 23+dB on the validation set, I ran 3000 iterations instead of 1000, and the training took around 3hours. However, the predicted images and rendered video were made with the 1000 iterations model.
+    The training took around 50 minutes for 1000 iterations. The speculation is that this is due to global sampling rays rather than sampling per image.
 
     <hr>
     <h3>Bells & Whistles</h4>
