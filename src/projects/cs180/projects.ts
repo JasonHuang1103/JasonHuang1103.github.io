@@ -1,4 +1,4 @@
-import indexHtml from "./content/index.html?raw";
+import cs180IndexDoc from "./index.html?raw";
 import project1Html from "./content/project1.html?raw";
 import project2Html from "./content/project2.html?raw";
 import project3Html from "./content/project3.html?raw";
@@ -10,6 +10,15 @@ type ProjectContent = {
   id: string;
   html: string;
 };
+
+const extractIndexContent = (doc: string) => {
+  const match = doc.match(
+    /<template\s+id=["']cs180-index-content["'][^>]*>([\s\S]*?)<\/template>/i
+  );
+  return match ? match[1].trim() : doc;
+};
+
+const indexHtml = extractIndexContent(cs180IndexDoc);
 
 export const cs180Content: ProjectContent[] = [
   { id: "index", html: indexHtml },

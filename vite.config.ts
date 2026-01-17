@@ -9,7 +9,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, "index.html"),
-        cs180Index: resolve(__dirname, "projects/cs180/index.html")
+        cs180Index: resolve(__dirname, "src/projects/cs180/index.html")
       }
     }
   }

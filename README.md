@@ -1,7 +1,3 @@
-# CS 180 - Projects
+# Personal Website
 
-All projects up to date for Fall2024 CS180.
-
-
-
-
+For tracking publications and projects up to date.

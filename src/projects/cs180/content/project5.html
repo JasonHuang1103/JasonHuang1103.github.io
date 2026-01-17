@@ -1,436 +1,484 @@
-<h1>Project 5: Fun with Diffusion Models</h1>
+<h1>Project 5: Diffusion Models</h1>
 
-    <h1>Part A</h1>
-    <p>
-        This part of the project is meant for an exploration of (pre-trained) diffusion models.
-    </p>
+<h1>Part A</h1>
+<p>
+    This part of the project is meant for an exploration of (pre-trained) diffusion models.
+</p>
 
-    <h2>Part 1: Sampling Loops</h2>
-    
-    <h3>1.1 Implementing the Forward Pass</h3>
-    <p>
-        A key part of diffusion is the forward process, which takes a clean image and adds noise to it. Here, we implement the forward process defiend by:
-        <div style="display: flex; justify-content: center; align-items: center; margin: 20px;">
-            \( q(x_t|x_0) = N(x_t;\sqrt{\bar{\alpha}}x_0,(1-\bar{\alpha}_t)\textbf{I}) \)
-        </div>
-        which is equivalent to computing
-        <div style="display: flex; justify-content: center; align-items: center; margin: 20px;">
-            \( x_t = \sqrt{\bar{\alpha}_t}x_0 + \sqrt{1-\bar{\alpha}_t}\epsilon \), where \( \epsilon \sim N(0,1)\)
-        </div>
-        That is, given a clean image \(x_0\), we get noisy image \(x_t\) at timestep \(t\) by sampling from a Gaussian with mean \(\sqrt{\bar{\alpha}_t}x_0\) and standard deviation \(\sqrt{1-\bar{\alpha}_t}\).
-    </p>
-    <div style="display: flex; justify-content: center; gap: 20px; width: 80%; margin: 0 auto;">
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/1_11.png" alt="Image 1" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Berkeley Campanile</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/2_11.png" alt="Image 2" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Noisy Campanile (t=250)</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/3_11.png" alt="Image 3" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Noisy Campanile (t=500)</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/4_11.png" alt="Image 4" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Noisy Campanile (t=750)</div>
-        </div>
+<h2>Part 1: Sampling Loops</h2>
+
+<h3>1.1 Implementing the Forward Pass</h3>
+<p>
+    A key part of diffusion is the forward process, which takes a clean image and adds noise to it. Here, we implement
+    the forward process defiend by:
+<div style="display: flex; justify-content: center; align-items: center; margin: 20px;">
+    \( q(x_t|x_0) = N(x_t;\sqrt{\bar{\alpha}}x_0,(1-\bar{\alpha}_t)\textbf{I}) \)
+</div>
+which is equivalent to computing
+<div style="display: flex; justify-content: center; align-items: center; margin: 20px;">
+    \( x_t = \sqrt{\bar{\alpha}_t}x_0 + \sqrt{1-\bar{\alpha}_t}\epsilon \), where \( \epsilon \sim N(0,1)\)
+</div>
+That is, given a clean image \(x_0\), we get noisy image \(x_t\) at timestep \(t\) by sampling from a Gaussian with mean
+\(\sqrt{\bar{\alpha}_t}x_0\) and standard deviation \(\sqrt{1-\bar{\alpha}_t}\).
+</p>
+<div style="display: flex; justify-content: center; gap: 20px; width: 80%; margin: 0 auto;">
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/1_11.png" alt="Image 1" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Berkeley Campanile</div>
     </div>
-
-    <h3>1.2 Classical Denoising</h3>
-    <p>
-        Here, we implement Gaussian blur filtering to tray to remove the noise:
-    </p>
-    <div style="display: flex; justify-content: center; gap: 20px; width: 60%; margin: 0 auto;">
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/5_12.png" alt="Image 1" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Noisy Campanile (t=250)</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/6_12.png" alt="Image 2" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Noisy Campanile (t=500)</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/7_12.png" alt="Image 3" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Noisy Campanile (t=750)</div>
-        </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/2_11.png" alt="Image 2" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Noisy Campanile (t=250)</div>
     </div>
-    <div style="display: flex; justify-content: center; gap: 20px; width: 60%; margin: 0 auto;">
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/8_12.png" alt="Image 4" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Gaussian Blur Denoising (t=250)</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/9_12.png" alt="Image 5" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Gaussian Blur Denoising (t=500)</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/10_12.png" alt="Image 6" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Gaussian Blur Denoising (t=750)</div>
-        </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/3_11.png" alt="Image 3" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Noisy Campanile (t=500)</div>
     </div>
-
-    <h3>1.3 One-Step Denoising</h3>
-    <p>
-        It is apparent that the denoising process from previous part wasn't ideal. Now, we will use a pretrained UNet to denoise (or more specifically remove the noise to recover something very close to the original image). Below, are the one-step denoised image versus their noisy version.
-    </p>
-    <div style="display: flex; justify-content: center; gap: 20px; width: 60%; margin: 0 auto;">
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/11_13.png" alt="Image 1" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Noisy Campanile (t=250)</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/12_13.png" alt="Image 2" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Noisy Campanile (t=500)</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/13_13.png" alt="Image 3" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Noisy Campanile (t=750)</div>
-        </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/4_11.png" alt="Image 4" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Noisy Campanile (t=750)</div>
     </div>
-    <div style="display: flex; justify-content: center; gap: 20px; width: 60%; margin: 0 auto;">
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/14_13.png" alt="Image 4" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">One-Step Denoised (t=250)</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/15_13.png" alt="Image 5" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">One-Step Denoised (t=500)</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/16_13.png" alt="Image 6" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">One-Step Denoised (t=750)</div>
-        </div>
+</div>
+
+<h3>1.2 Classical Denoising</h3>
+<p>
+    Here, we implement Gaussian blur filtering to tray to remove the noise:
+</p>
+<div style="display: flex; justify-content: center; gap: 20px; width: 60%; margin: 0 auto;">
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/5_12.png" alt="Image 1" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Noisy Campanile (t=250)</div>
     </div>
-
-    <h3>1.4 Iterative Denoising</h3>
-    <p>
-        We see that from the previous part the one-step denoising results are much better than those from Gaussian dneoise. However, we can still see a slight deviation from the actual image, especially as we add more noise. To improve, we can implement iterative denoising where, say, we start with noise \(x_{1000}\) at timestep \(T=1000\), and carry on until we get \(x_0\). To increase efficiency and reduce cost, we can actually skip a few steps. That is, we have a list of timesteps 'strided_timesteps', where 'strided_timesteps' corresponds to the noisiest image and 'strided_timesteps[-1]' will correspond to a clean image. Each element of the list thus corresponds to a decreasing timesteps:
-    </p>
-    <div style="display: flex; justify-content: center; gap: 20px; width: 80%; margin: 0 auto;">
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/17_14.png" alt="Image 1" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Denoising step 10</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/18_14.png" alt="Image 2" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Denoising step 15</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/19_14.png" alt="Image 3" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Denoising step 20</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/20_14.png" alt="Image 4" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Denoising step 25</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/21_14.png" alt="Image 5" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Denoising step 30</div>
-        </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/6_12.png" alt="Image 2" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Noisy Campanile (t=500)</div>
     </div>
-    <div style="display: flex; justify-content: center; gap: 20px; width: 80%; margin: 0 auto;">
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/1_11.png" alt="Image 1" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Original</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/22_14.png" alt="Image 2" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Iteratively Denoised</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/23_14.png" alt="Image 3" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">One-Step Denoised</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/24_14.png" alt="Image 4" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Gaussian Blurred</div>
-        </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/7_12.png" alt="Image 3" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Noisy Campanile (t=750)</div>
     </div>
-
-    <h3>1.5 Diffusion Model Sampling</h3>
-    <p>
-        Using the 'iterative_denoise' function is to generate images from scratch. We can do this by setting 'i_start=0' and passing in random noise. This effectively denoises pure noise and generate random images:
-    </p>
-    <div style="display: flex; justify-content: center; gap: 20px; width: 80%; margin: 0 auto;">
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/25_15_samp1.png" alt="Image 1" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Sample 1</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/26_15_samp2.png" alt="Image 2" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Sample 2</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/27_15_samp3.png" alt="Image 3" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Sample 3</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/28_15_samp4.png" alt="Image 4" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Sample 4</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/29_15_samp5.png" alt="Image 5" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Sample 5</div>
-        </div>
+</div>
+<div style="display: flex; justify-content: center; gap: 20px; width: 60%; margin: 0 auto;">
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/8_12.png" alt="Image 4" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Gaussian Blur Denoising (t=250)</div>
     </div>
-
-    <h3>1.6 Classifier-Free Guidance (CFG)</h3>
-    <p>
-        We can see from previous part that the generated images are not ideal in the sense they don't exactly look real. One way to mitigate this issue is to use Classifier-Free Guidance, where we compute both a conditional and an unconditional noise estimate. This is defined as:
-        <div style="display: flex; justify-content: center; align-items: center; margin: 20px;">
-            \( \epsilon = \epsilon_u + \gamma(\epsilon_c-\epsilon_u) \)
-        </div>
-        where \(\gamma\) controls the strength of CFG, \(\epsilon_u\) and \(\epsilon_c\) denotes the unconditional noise and conditional noise respectively. The high-level idea is that we use the difference of unconditional noise and conditional noise at the "guide" to improve our unconditional noise estimate. In practice, we see that it does indeed produce better results (more realistic images):
-    </p>
-    <div style="display: flex; justify-content: center; gap: 20px; width: 80%; margin: 0 auto;">
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/30_16_gen1.png" alt="Image 1" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Sample 1 with CFG</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/31_16_gen2.png" alt="Image 2" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Sample 2 with CFG</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/32_16_gen3.png" alt="Image 3" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Sample 3 with CFG</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/33_16_gen4.png" alt="Image 4" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Sample 4 with CFG</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/34_16_gen5.png" alt="Image 5" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Sample 5 with CFG</div>
-        </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/9_12.png" alt="Image 5" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Gaussian Blur Denoising (t=500)</div>
     </div>
-
-    <h3>1.7 Image-to-image Translation</h3>
-    <p>
-        In part 1.4, we take a real image, add noise to it, then denoise it. Here, we take the original test image, noise it a little, and force it back onto the image manifold without any conditioning. The expectation is that we are going to get a novel image that is similar to the original image. This follows the SDEdit algorithm.
-    </p>
-    <div style="display: flex; justify-content: center; gap: 20px; width: 80%; margin: 0 auto;">
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/35_17_i1.png" alt="Image 1" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">SDEdit with i_start=1</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/36_17_i3.png" alt="Image 2" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">SDEdit with i_start=3</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/37_17_i5.png" alt="Image 3" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">SDEdit with i_start=5</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/38_17_i7.png" alt="Image 4" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">SDEdit with i_start=7</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/39_17_i10.png" alt="Image 5" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">SDEdit with i_start=10</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/40_17_i20.png" alt="Image 6" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">SDEdit with i_start=20</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/1_11.png" alt="Image 7" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Original</div>
-        </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/10_12.png" alt="Image 6" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Gaussian Blur Denoising (t=750)</div>
     </div>
+</div>
 
-    <h4>1.7.1 Editing Hand-Drawn and Web Images</h4>
-    <p>
-        This procedure works particularlyu well if we start with a nonrealistic image (e.g. painting, sketching, or some scribbles) and project it onto the natural image manifold:
-    </p>
-    <div style="display: flex; justify-content: center; gap: 20px; width: 80%; margin: 0 auto;">
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/41_171_s1.png" alt="Image 1" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Avocado with i_start=1</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/42_171_s3.png" alt="Image 2" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Avocado with i_start=3</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/43_171_s5.png" alt="Image 3" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Avocado with i_start=5</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/44_171_s7.png" alt="Image 4" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Avocado with i_start=7</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/45_171_s10.png" alt="Image 5" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Avocado with i_start=10</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/46_171_s20.png" alt="Image 6" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Avocado with i_start=20</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/47_171_selected.png" alt="Image 7" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Avocado</div>
-        </div>
+<h3>1.3 One-Step Denoising</h3>
+<p>
+    It is apparent that the denoising process from previous part wasn't ideal. Now, we will use a pretrained UNet to
+    denoise (or more specifically remove the noise to recover something very close to the original image). Below, are
+    the one-step denoised image versus their noisy version.
+</p>
+<div style="display: flex; justify-content: center; gap: 20px; width: 60%; margin: 0 auto;">
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/11_13.png" alt="Image 1" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Noisy Campanile (t=250)</div>
     </div>
-    <div style="display: flex; justify-content: center; gap: 20px; width: 80%; margin: 0 auto;">
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/49_171_p1.png" alt="Image 1" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Scribble with i_start=1</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/50_171_p3.png" alt="Image 2" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Scribble with i_start=3</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/51_171_p5.png" alt="Image 3" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Scribble with i_start=5</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/52_171_p7.png" alt="Image 4" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Scribble with i_start=7</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/53_171_p10.png" alt="Image 5" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Scribble with i_start=10</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/54_171_p20.png" alt="Image 6" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Scribble with i_start=20</div>
-        </div>
-        <div style="text-align: center; flex: 1;">
-            <img src="./images/project5_images/5a/48_171_drawn.png" alt="Image 7" style="width: 100%; display: block;">
-            <div style="margin-top: 5px; font-size: 14px; color: #333;">Scribble</div>
-        </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/12_13.png" alt="Image 2" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Noisy Campanile (t=500)</div>
     </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/13_13.png" alt="Image 3" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Noisy Campanile (t=750)</div>
+    </div>
+</div>
+<div style="display: flex; justify-content: center; gap: 20px; width: 60%; margin: 0 auto;">
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/14_13.png" alt="Image 4" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">One-Step Denoised (t=250)</div>
+    </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/15_13.png" alt="Image 5" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">One-Step Denoised (t=500)</div>
+    </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/16_13.png" alt="Image 6" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">One-Step Denoised (t=750)</div>
+    </div>
+</div>
 
-    <hr>
+<h3>1.4 Iterative Denoising</h3>
+<p>
+    We see that from the previous part the one-step denoising results are much better than those from Gaussian dneoise.
+    However, we can still see a slight deviation from the actual image, especially as we add more noise. To improve, we
+    can implement iterative denoising where, say, we start with noise \(x_{1000}\) at timestep \(T=1000\), and carry on
+    until we get \(x_0\). To increase efficiency and reduce cost, we can actually skip a few steps. That is, we have a
+    list of timesteps 'strided_timesteps', where 'strided_timesteps' corresponds to the noisiest image and
+    'strided_timesteps[-1]' will correspond to a clean image. Each element of the list thus corresponds to a decreasing
+    timesteps:
+</p>
+<div style="display: flex; justify-content: center; gap: 20px; width: 80%; margin: 0 auto;">
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/17_14.png" alt="Image 1" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Denoising step 10</div>
+    </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/18_14.png" alt="Image 2" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Denoising step 15</div>
+    </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/19_14.png" alt="Image 3" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Denoising step 20</div>
+    </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/20_14.png" alt="Image 4" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Denoising step 25</div>
+    </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/21_14.png" alt="Image 5" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Denoising step 30</div>
+    </div>
+</div>
+<div style="display: flex; justify-content: center; gap: 20px; width: 80%; margin: 0 auto;">
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/1_11.png" alt="Image 1" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Original</div>
+    </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/22_14.png" alt="Image 2" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Iteratively Denoised</div>
+    </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/23_14.png" alt="Image 3" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">One-Step Denoised</div>
+    </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/24_14.png" alt="Image 4" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Gaussian Blurred</div>
+    </div>
+</div>
 
-    <h1>Part B</h1>
+<h3>1.5 Diffusion Model Sampling</h3>
+<p>
+    Using the 'iterative_denoise' function is to generate images from scratch. We can do this by setting 'i_start=0' and
+    passing in random noise. This effectively denoises pure noise and generate random images:
+</p>
+<div style="display: flex; justify-content: center; gap: 20px; width: 80%; margin: 0 auto;">
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/25_15_samp1.png" alt="Image 1" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Sample 1</div>
+    </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/26_15_samp2.png" alt="Image 2" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Sample 2</div>
+    </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/27_15_samp3.png" alt="Image 3" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Sample 3</div>
+    </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/28_15_samp4.png" alt="Image 4" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Sample 4</div>
+    </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/29_15_samp5.png" alt="Image 5" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Sample 5</div>
+    </div>
+</div>
 
-    <h2>Part 1: Training a Single-Step Denoising UNet</h2>
+<h3>1.6 Classifier-Free Guidance (CFG)</h3>
+<p>
+    We can see from previous part that the generated images are not ideal in the sense they don't exactly look real. One
+    way to mitigate this issue is to use Classifier-Free Guidance, where we compute both a conditional and an
+    unconditional noise estimate. This is defined as:
+<div style="display: flex; justify-content: center; align-items: center; margin: 20px;">
+    \( \epsilon = \epsilon_u + \gamma(\epsilon_c-\epsilon_u) \)
+</div>
+where \(\gamma\) controls the strength of CFG, \(\epsilon_u\) and \(\epsilon_c\) denotes the unconditional noise and
+conditional noise respectively. The high-level idea is that we use the difference of unconditional noise and conditional
+noise at the "guide" to improve our unconditional noise estimate. In practice, we see that it does indeed produce better
+results (more realistic images):
+</p>
+<div style="display: flex; justify-content: center; gap: 20px; width: 80%; margin: 0 auto;">
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/30_16_gen1.png" alt="Image 1" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Sample 1 with CFG</div>
+    </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/31_16_gen2.png" alt="Image 2" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Sample 2 with CFG</div>
+    </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/32_16_gen3.png" alt="Image 3" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Sample 3 with CFG</div>
+    </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/33_16_gen4.png" alt="Image 4" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Sample 4 with CFG</div>
+    </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/34_16_gen5.png" alt="Image 5" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Sample 5 with CFG</div>
+    </div>
+</div>
 
-    <h3>1.1 Implementing the UNet</h3>
+<h3>1.7 Image-to-image Translation</h3>
+<p>
+    In part 1.4, we take a real image, add noise to it, then denoise it. Here, we take the original test image, noise it
+    a little, and force it back onto the image manifold without any conditioning. The expectation is that we are going
+    to get a novel image that is similar to the original image. This follows the SDEdit algorithm.
+</p>
+<div style="display: flex; justify-content: center; gap: 20px; width: 80%; margin: 0 auto;">
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/35_17_i1.png" alt="Image 1" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">SDEdit with i_start=1</div>
+    </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/36_17_i3.png" alt="Image 2" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">SDEdit with i_start=3</div>
+    </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/37_17_i5.png" alt="Image 3" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">SDEdit with i_start=5</div>
+    </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/38_17_i7.png" alt="Image 4" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">SDEdit with i_start=7</div>
+    </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/39_17_i10.png" alt="Image 5" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">SDEdit with i_start=10</div>
+    </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/40_17_i20.png" alt="Image 6" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">SDEdit with i_start=20</div>
+    </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/1_11.png" alt="Image 7" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Original</div>
+    </div>
+</div>
+
+<h4>1.7.1 Editing Hand-Drawn and Web Images</h4>
+<p>
+    This procedure works particularlyu well if we start with a nonrealistic image (e.g. painting, sketching, or some
+    scribbles) and project it onto the natural image manifold:
+</p>
+<div style="display: flex; justify-content: center; gap: 20px; width: 80%; margin: 0 auto;">
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/41_171_s1.png" alt="Image 1" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Avocado with i_start=1</div>
+    </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/42_171_s3.png" alt="Image 2" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Avocado with i_start=3</div>
+    </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/43_171_s5.png" alt="Image 3" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Avocado with i_start=5</div>
+    </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/44_171_s7.png" alt="Image 4" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Avocado with i_start=7</div>
+    </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/45_171_s10.png" alt="Image 5" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Avocado with i_start=10</div>
+    </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/46_171_s20.png" alt="Image 6" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Avocado with i_start=20</div>
+    </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/47_171_selected.png" alt="Image 7" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Avocado</div>
+    </div>
+</div>
+<div style="display: flex; justify-content: center; gap: 20px; width: 80%; margin: 0 auto;">
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/49_171_p1.png" alt="Image 1" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Scribble with i_start=1</div>
+    </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/50_171_p3.png" alt="Image 2" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Scribble with i_start=3</div>
+    </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/51_171_p5.png" alt="Image 3" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Scribble with i_start=5</div>
+    </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/52_171_p7.png" alt="Image 4" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Scribble with i_start=7</div>
+    </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/53_171_p10.png" alt="Image 5" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Scribble with i_start=10</div>
+    </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/54_171_p20.png" alt="Image 6" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Scribble with i_start=20</div>
+    </div>
+    <div style="text-align: center; flex: 1;">
+        <img src="./images/project5_images/5a/48_171_drawn.png" alt="Image 7" style="width: 100%; display: block;">
+        <div style="margin-top: 5px; font-size: 14px; color: #333;">Scribble</div>
+    </div>
+</div>
+
+<hr>
+
+<h1>Part B</h1>
+
+<h2>Part 1: Training a Single-Step Denoising UNet</h2>
+
+<h3>1.1 Implementing the UNet</h3>
+<ul>
+    Here, we aim to implement the building blocks of a standard UNet model. For now, the goal is to establish an
+    unconditional UNet:
     <ul>
-        Here, we aim to implement the building blocks of a standard UNet model. For now, the goal is to establish an unconditional UNet:
-        <ul>
-            <li>
-                <strong>Simple Operations:</strong>
-                <ul>
-                    <li>These are the basic building blocks that perform individual operations, such as convolutions, downsampling, upsampling, flattening, and reshaping (unflattening).</li>
-                    <li>Each of these operations contributes to transforming the image tensor through the UNet's encoder and decoder paths.</li>
-                </ul>
-            </li>
-            <li>
-                <strong>Composed Operations:</strong>
-                <ul>
-                    <li>These operations combine the simple ones to create larger functional blocks, such as downsampling and upsampling blocks with convolutional layers.</li>
-                    <li>The composed operations allow us to construct the UNet architecture by connecting multiple simple operations, forming the UNet's contracting and expanding paths, and making use of skip connections.</li>
-                </ul>
-            </li>
-        </ul>
+        <li>
+            <strong>Simple Operations:</strong>
+            <ul>
+                <li>These are the basic building blocks that perform individual operations, such as convolutions,
+                    downsampling, upsampling, flattening, and reshaping (unflattening).</li>
+                <li>Each of these operations contributes to transforming the image tensor through the UNet's encoder and
+                    decoder paths.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Composed Operations:</strong>
+            <ul>
+                <li>These operations combine the simple ones to create larger functional blocks, such as downsampling
+                    and upsampling blocks with convolutional layers.</li>
+                <li>The composed operations allow us to construct the UNet architecture by connecting multiple simple
+                    operations, forming the UNet's contracting and expanding paths, and making use of skip connections.
+                </li>
+            </ul>
+        </li>
     </ul>
+</ul>
 
-    <h3>1.2 Using the UNet to Train a Denoiser</h3>
-    <p>
-        With these foundations, we can train an unconditional UNet to denoise images.
-    </p>
-    <div style="display: flex; justify-content: center; width: 100%; gap: 20px; margin: 20px;">
-        <div style="width: 80%; position: relative; padding-bottom: 40%; background-color: white; overflow: hidden;">
-            <img src="./images/project5_images/5b/1.2_fig3.png" alt="figure 3" style="position: absolute; top: 50%; left: 50%; width: 100%; height: 100%; object-fit: contain; transform: translate(-50%, -50%);">
-        </div>
+<h3>1.2 Using the UNet to Train a Denoiser</h3>
+<p>
+    With these foundations, we can train an unconditional UNet to denoise images.
+</p>
+<div style="display: flex; justify-content: center; width: 100%; gap: 20px; margin: 20px;">
+    <div style="width: 80%; position: relative; padding-bottom: 40%; background-color: white; overflow: hidden;">
+        <img src="./images/project5_images/5b/1.2_fig3.png" alt="figure 3"
+            style="position: absolute; top: 50%; left: 50%; width: 100%; height: 100%; object-fit: contain; transform: translate(-50%, -50%);">
     </div>
+</div>
 
-    <h4>1.2.1 Training</h4>
-    <p>Using &sigma;=0.5, we train the denoiser on the MNIST datset with batch size 256, 5 epochs, hidden dimension 128. For the Adam optimizer, we used a learning rate of 1e-4.</p>
-    <div style="display: flex; justify-content: center; width: 100%; gap: 20px; margin: 20px;">
-        <div style="width: 80%; position: relative; padding-bottom: 40%; background-color: white; overflow: hidden;">
-            <img src="./images/project5_images/5b/1.2.1_fig4.png" alt="figure 4" style="position: absolute; top: 50%; left: 50%; width: 100%; height: 100%; object-fit: contain; transform: translate(-50%, -50%);">
+<h4>1.2.1 Training</h4>
+<p>Using &sigma;=0.5, we train the denoiser on the MNIST datset with batch size 256, 5 epochs, hidden dimension 128. For
+    the Adam optimizer, we used a learning rate of 1e-4.</p>
+<div style="display: flex; justify-content: center; width: 100%; gap: 20px; margin: 20px;">
+    <div style="width: 80%; position: relative; padding-bottom: 40%; background-color: white; overflow: hidden;">
+        <img src="./images/project5_images/5b/1.2.1_fig4.png" alt="figure 4"
+            style="position: absolute; top: 50%; left: 50%; width: 100%; height: 100%; object-fit: contain; transform: translate(-50%, -50%);">
+    </div>
+</div>
+<p>Visualizing a few example, we see that the results are reasonably well.</p>
+<div style="display: flex; justify-content: center; width: 100%; gap: 20px; margin: 20px;">
+    <figure style="width: 40%; text-align: center; margin: 0; background-color: white;">
+        <div style="position: relative; width: 100%; padding-bottom: 100%; background-color: white; overflow: hidden;">
+            <img src="./images/project5_images/5b/1.2.1_fig5.png" alt="figure 5"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;">
         </div>
-    </div>
-    <p>Visualizing a few example, we see that the results are reasonably well.</p>
-    <div style="display: flex; justify-content: center; width: 100%; gap: 20px; margin: 20px;">
-        <figure style="width: 40%; text-align: center; margin: 0; background-color: white;">
-            <div style="position: relative; width: 100%; padding-bottom: 100%; background-color: white; overflow: hidden;">
-                <img src="./images/project5_images/5b/1.2.1_fig5.png" alt="figure 5" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;">
-            </div>
-            <figcaption style="margin-top: 10px; font-size: 16px; color: black;">Epoch 1</figcaption>
-        </figure>
-        <figure style="width: 40%; text-align: center; margin: 0; background-color: white;">
-            <div style="position: relative; width: 100%; padding-bottom: 100%; background-color: white; overflow: hidden;">
-                <img src="./images/project5_images/5b/1.2.1_fig6.png" alt="figure 6" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;">
-            </div>
-            <figcaption style="margin-top: 10px; font-size: 16px; color: black;">Epoch 5</figcaption>
-        </figure>
-    </div>
+        <figcaption style="margin-top: 10px; font-size: 16px; color: black;">Epoch 1</figcaption>
+    </figure>
+    <figure style="width: 40%; text-align: center; margin: 0; background-color: white;">
+        <div style="position: relative; width: 100%; padding-bottom: 100%; background-color: white; overflow: hidden;">
+            <img src="./images/project5_images/5b/1.2.1_fig6.png" alt="figure 6"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;">
+        </div>
+        <figcaption style="margin-top: 10px; font-size: 16px; color: black;">Epoch 5</figcaption>
+    </figure>
+</div>
 
-    <h4>1.2.2 Out-of-Distribution Testing</h4>
-    <p>Since our denoiser was trained on &sigma;=0.5, the model will likely not perform as well on different &sigma;'s, especially for those that are greater than the one we trained.</p>
-    <div style="display: flex; justify-content: center; width: 100%; gap: 20px; margin: 20px;">
-        <div style="width: 80%; position: relative; padding-bottom: 40%; background-color: white; overflow: hidden;">
-            <img src="./images/project5_images/5b/1.2.2_fig7.png" alt="figure 7" style="position: absolute; top: 50%; left: 50%; width: 100%; height: 100%; object-fit: contain; transform: translate(-50%, -50%);">
-        </div>
+<h4>1.2.2 Out-of-Distribution Testing</h4>
+<p>Since our denoiser was trained on &sigma;=0.5, the model will likely not perform as well on different &sigma;'s,
+    especially for those that are greater than the one we trained.</p>
+<div style="display: flex; justify-content: center; width: 100%; gap: 20px; margin: 20px;">
+    <div style="width: 80%; position: relative; padding-bottom: 40%; background-color: white; overflow: hidden;">
+        <img src="./images/project5_images/5b/1.2.2_fig7.png" alt="figure 7"
+            style="position: absolute; top: 50%; left: 50%; width: 100%; height: 100%; object-fit: contain; transform: translate(-50%, -50%);">
     </div>
+</div>
 
-    <h2>Part 2: Training a Diffusion Model</h2>
-    <p>
-        In this part, we're essentially trainig the UNet model as a Denoising Diffusion Probabilistic Model, where the goal  is to iteratively predict noise added to images over a series of timesteps.
-    </p>
+<h2>Part 2: Training a Diffusion Model</h2>
+<p>
+    In this part, we're essentially trainig the UNet model as a Denoising Diffusion Probabilistic Model, where the goal
+    is to iteratively predict noise added to images over a series of timesteps.
+</p>
 
-    <h3>2.1 Adding Time Conditioning to UNet</h3>
-    <p>
-        Here, we expand on our original unconditional UNet by injecting scalar <i>t</i> into our UNet model and condition it. To do so, we have to implement a new building block: FCBlock(...)
-    </p>
+<h3>2.1 Adding Time Conditioning to UNet</h3>
+<p>
+    Here, we expand on our original unconditional UNet by injecting scalar <i>t</i> into our UNet model and condition
+    it. To do so, we have to implement a new building block: FCBlock(...)
+</p>
 
-    <h3>2.2 Training the UNet</h3>
-    <p>
-        Following the given algorithm, we establish the training loop and arrive at the following results:
-    </p>
-    <div style="display: flex; justify-content: center; width: 100%; gap: 20px; margin: 20px;">
-        <div style="width: 80%; position: relative; padding-bottom: 40%; background-color: white; overflow: hidden;">
-            <img src="./images/project5_images/5b/2.2_fig10.png" alt="figure 10" style="position: absolute; top: 50%; left: 50%; width: 100%; height: 100%; object-fit: contain; transform: translate(-50%, -50%);">
-        </div>
+<h3>2.2 Training the UNet</h3>
+<p>
+    Following the given algorithm, we establish the training loop and arrive at the following results:
+</p>
+<div style="display: flex; justify-content: center; width: 100%; gap: 20px; margin: 20px;">
+    <div style="width: 80%; position: relative; padding-bottom: 40%; background-color: white; overflow: hidden;">
+        <img src="./images/project5_images/5b/2.2_fig10.png" alt="figure 10"
+            style="position: absolute; top: 50%; left: 50%; width: 100%; height: 100%; object-fit: contain; transform: translate(-50%, -50%);">
     </div>
+</div>
 
-    <h3>2.3 Sampling from the UNet</h3>
-    <p>
-        Additionally, we also implemented DDPM (Denoising Diffusion Probabilistic Model) to help visualizing some denoised samples.
-    </p>
-    <div style="display: flex; justify-content: center; width: 100%; gap: 20px; margin: 20px;">
-        <div style="display: flex; justify-content: center; align-items: center; background-color: white; overflow: hidden;">
-            <img src="./images/project5_images/5b/2.3_epoch5.png" alt="2.3 Epoch 5" style="max-width: 80%; height: auto; object-fit: contain;">
-        </div>
+<h3>2.3 Sampling from the UNet</h3>
+<p>
+    Additionally, we also implemented DDPM (Denoising Diffusion Probabilistic Model) to help visualizing some denoised
+    samples.
+</p>
+<div style="display: flex; justify-content: center; width: 100%; gap: 20px; margin: 20px;">
+    <div
+        style="display: flex; justify-content: center; align-items: center; background-color: white; overflow: hidden;">
+        <img src="./images/project5_images/5b/2.3_epoch5.png" alt="2.3 Epoch 5"
+            style="max-width: 80%; height: auto; object-fit: contain;">
     </div>
-    <div style="display: flex; justify-content: center; width: 100%; gap: 20px; margin: 20px;">
-        <div style="display: flex; justify-content: center; align-items: center; background-color: white; overflow: hidden;">
-            <img src="./images/project5_images/5b/2.3_epoch20.png" alt="2.3 Epoch 20" style="max-width: 80%; height: auto; object-fit: contain;">
-        </div>
+</div>
+<div style="display: flex; justify-content: center; width: 100%; gap: 20px; margin: 20px;">
+    <div
+        style="display: flex; justify-content: center; align-items: center; background-color: white; overflow: hidden;">
+        <img src="./images/project5_images/5b/2.3_epoch20.png" alt="2.3 Epoch 20"
+            style="max-width: 80%; height: auto; object-fit: contain;">
     </div>
+</div>
 
-    <h3>2.4 Adding Class-Conditioning to UNet</h3>
-    <p>
-        To generate better result and give us more control to our output, we can also optionally condition our UNet on the class of the digit 0-9. To do so, we need to add two more FCBlocks to our previous implementation. For the class conditioning vector, we encode into a one-hot vector for simplicity. We also set p_{uncond}=1 to include a 10% dropout, allowing the model to still operate in case when class is not being conditioned.
-    </p>
-    <div style="display: flex; justify-content: center; width: 100%; gap: 20px; margin: 20px;">
-        <div style="width: 80%; position: relative; padding-bottom: 40%; background-color: white; overflow: hidden;">
-            <img src="./images/project5_images/5b/2.4_fig11.png" alt="figure 11" style="position: absolute; top: 50%; left: 50%; width: 100%; height: 100%; object-fit: contain; transform: translate(-50%, -50%);">
-        </div>
+<h3>2.4 Adding Class-Conditioning to UNet</h3>
+<p>
+    To generate better result and give us more control to our output, we can also optionally condition our UNet on the
+    class of the digit 0-9. To do so, we need to add two more FCBlocks to our previous implementation. For the class
+    conditioning vector, we encode into a one-hot vector for simplicity. We also set p_{uncond}=1 to include a 10%
+    dropout, allowing the model to still operate in case when class is not being conditioned.
+</p>
+<div style="display: flex; justify-content: center; width: 100%; gap: 20px; margin: 20px;">
+    <div style="width: 80%; position: relative; padding-bottom: 40%; background-color: white; overflow: hidden;">
+        <img src="./images/project5_images/5b/2.4_fig11.png" alt="figure 11"
+            style="position: absolute; top: 50%; left: 50%; width: 100%; height: 100%; object-fit: contain; transform: translate(-50%, -50%);">
     </div>
+</div>
 
-    <h3>2.5 Sampling from the Class-Conditioned UNet</h3>
-    <p>
-        Applying similar technique as 2.3, we can visualize some of these samples:
-    </p>
-    <div style="display: flex; justify-content: center; width: 100%; gap: 20px; margin: 20px;">
-        <div style="display: flex; justify-content: center; align-items: center; background-color: white; overflow: hidden;">
-            <img src="./images/project5_images/5b/2.5_epoch5.png" alt="2.5 Epoch 5" style="max-width: 80%; height: auto; object-fit: contain;">
-        </div>
+<h3>2.5 Sampling from the Class-Conditioned UNet</h3>
+<p>
+    Applying similar technique as 2.3, we can visualize some of these samples:
+</p>
+<div style="display: flex; justify-content: center; width: 100%; gap: 20px; margin: 20px;">
+    <div
+        style="display: flex; justify-content: center; align-items: center; background-color: white; overflow: hidden;">
+        <img src="./images/project5_images/5b/2.5_epoch5.png" alt="2.5 Epoch 5"
+            style="max-width: 80%; height: auto; object-fit: contain;">
     </div>
-    <div style="display: flex; justify-content: center; width: 100%; gap: 20px; margin: 20px;">
-        <div style="display: flex; justify-content: center; align-items: center; background-color: white; overflow: hidden;">
-            <img src="./images/project5_images/5b/2.5_epoch20.png" alt="2.5 Epoch 20" style="max-width: 80%; height: auto; object-fit: contain;">
-        </div>
+</div>
+<div style="display: flex; justify-content: center; width: 100%; gap: 20px; margin: 20px;">
+    <div
+        style="display: flex; justify-content: center; align-items: center; background-color: white; overflow: hidden;">
+        <img src="./images/project5_images/5b/2.5_epoch20.png" alt="2.5 Epoch 20"
+            style="max-width: 80%; height: auto; object-fit: contain;">
     </div>
+</div>

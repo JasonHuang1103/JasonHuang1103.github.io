@@ -2,33 +2,44 @@ export const projectsBlock = {
   title: "Projects",
   sections: [
     {
-      title: "CS180: Computer Vision",
-      href: "/projects/cs180/index.html#index",
+      title: "Gorilla - BFCL",
+      href: "https://gorilla.cs.berkeley.edu/index.html",
       links: [
         {
           label:
-            "Project 1: Images of the Russian Empire - Colorizing the Prokudin-Gorskii Photo Collection",
-          href: "/projects/cs180/index.html#project1"
+            "BFCL V3 - Multi-Turn & Multi-Step Function Calling Evaluation",
+          href: "https://gorilla.cs.berkeley.edu/blogs/13_bfcl_v3_multi_turn.html"
+        }
+      ]
+    },
+
+    {
+      title: "CS180: Computer Vision",
+      links: [
+        {
+          label:
+            "Images of the Russian Empire - Colorizing the Prokudin-Gorskii Photo Collection",
+          href: "/src/projects/cs180/index.html#project1"
         },
         {
-          label: "Project 2: Fun with Filters and Frequencies",
-          href: "/projects/cs180/index.html#project2"
+          label: "Filters and Frequencies",
+          href: "/src/projects/cs180/index.html#project2"
         },
         {
-          label: "Project 3: Face Morphing and Modelling a Photo Collection",
-          href: "/projects/cs180/index.html#project3"
+          label: "Face Morphing and Modelling a Photo Collection",
+          href: "/src/projects/cs180/index.html#project3"
         },
         {
-          label: "Project 4: (Auto)stitching and photo mosaics",
-          href: "/projects/cs180/index.html#project4"
+          label: "(Auto)stitching and photo mosaics",
+          href: "/src/projects/cs180/index.html#project4"
         },
         {
-          label: "Project 5: Fun with Diffusion Models",
-          href: "/projects/cs180/index.html#project5"
+          label: "Diffusion Models",
+          href: "/src/projects/cs180/index.html#project5"
         },
         {
-          label: "Project 6: Neural Radiance Field",
-          href: "/projects/cs180/index.html#project6"
+          label: "Neural Radiance Field",
+          href: "/src/projects/cs180/index.html#project6"
         }
       ]
     }

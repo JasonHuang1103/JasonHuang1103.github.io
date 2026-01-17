@@ -129,7 +129,6 @@ export default function App() {
         <section className="section hero" id="home">
           <div className="hero-top">
             <div className="hero-text">
-              <p className="hero-kicker">Academic Portfolio</p>
               <h1>{profile.name}</h1>
               <p className="hero-tagline">{profile.tagline}</p>
               <p className="hero-affiliation">

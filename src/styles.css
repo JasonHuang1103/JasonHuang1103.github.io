@@ -494,6 +494,10 @@ button {
   gap: 12px;
 }
 
+.legacy-block + .legacy-block {
+  margin-top: 24px;
+}
+
 .legacy-header {
   font-family: "Cormorant Garamond", "Times New Roman", serif;
   font-size: 1.4rem;
