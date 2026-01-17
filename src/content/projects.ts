@@ -18,27 +18,27 @@ export const projectsBlock = {
         {
           label:
             "Images of the Russian Empire - Colorizing the Prokudin-Gorskii Photo Collection",
-          href: "/src/projects/cs180/content/project1.html"
+          href: "/src/projects/cs180/index.html#project1"
         },
         {
           label: "Filters and Frequencies",
-          href: "/src/projects/cs180/content/project2.html"
+          href: "/src/projects/cs180/index.html#project2"
         },
         {
           label: "Face Morphing and Modelling a Photo Collection",
-          href: "/src/projects/cs180/content/project3.html"
+          href: "/src/projects/cs180/index.html#project3"
         },
         {
           label: "(Auto)stitching and photo mosaics",
-          href: "/src/projects/cs180/content/project4.html"
+          href: "/src/projects/cs180/index.html#project4"
         },
         {
           label: "Diffusion Models",
-          href: "/src/projects/cs180/content/project5.html"
+          href: "/src/projects/cs180/index.html#project5"
         },
         {
           label: "Neural Radiance Field",
-          href: "/src/projects/cs180/content/project6.html"
+          href: "/src/projects/cs180/index.html#project6"
         }
       ]
     }
