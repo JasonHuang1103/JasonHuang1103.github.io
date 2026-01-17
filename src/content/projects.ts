@@ -12,7 +12,6 @@ export const projectsBlock = {
         }
       ]
     },
-
     {
       title: "CS180: Computer Vision",
       links: [
