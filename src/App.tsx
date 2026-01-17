@@ -95,6 +95,7 @@ export default function App() {
   const emailText =
     emailLink?.href.replace(/^mailto:/, "") ??
     "jasonhuang1103@berkeley.edu";
+  const emailDisplay = emailCopied ? "copied" : emailText;
 
   return (
     <div className="page">
@@ -153,9 +154,12 @@ export default function App() {
                 aria-label={`Copy email address ${emailText}`}
               >
                 <span className="email-label">Email</span>
-                <span className="email-value">{emailText}</span>
-                <span className={emailCopied ? "copied-hint show" : "copied-hint"}>
-                  copied
+                <span
+                  className="email-value"
+                  style={{ minWidth: `${emailText.length}ch` }}
+                  aria-live="polite"
+                >
+                  {emailDisplay}
                 </span>
               </button>
             ) : null}

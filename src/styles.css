@@ -250,7 +250,7 @@ button {
   overflow: hidden;
   display: inline-flex;
   align-items: center;
-  gap: 0;
+  gap: 8px;
   white-space: nowrap;
 }
 
@@ -266,48 +266,13 @@ button {
   box-shadow: 0 12px 20px rgba(37, 99, 235, 0.18);
 }
 
-.email-label,
+.email-label {
+  display: inline-block;
+}
+
 .email-value {
   display: inline-block;
-  transition: opacity 0.4s ease, max-width 0.45s ease, margin 0.4s ease;
-  overflow: hidden;
-}
-
-.email-value {
-  opacity: 0;
-  max-width: 0;
-  margin-left: 0;
-}
-
-.email-chip:hover .email-label {
-  opacity: 0;
-  max-width: 0;
-  margin-right: 0;
-}
-
-.email-chip:hover .email-value {
-  opacity: 1;
-  max-width: 280px;
-  margin-left: 8px;
-}
-
-.copied-hint {
-  position: absolute;
-  right: -8px;
-  top: -10px;
-  transform: translateX(100%);
-  background: var(--ink);
-  color: #ffffff;
-  font-size: 0.7rem;
-  padding: 2px 6px;
-  border-radius: 8px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.15s ease;
-}
-
-.copied-hint.show {
-  opacity: 1;
+  text-align: center;
 }
 
 .about-card {
