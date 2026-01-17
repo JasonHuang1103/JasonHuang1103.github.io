@@ -64,13 +64,11 @@ button {
 
 .page {
   min-height: 100vh;
-  background: repeating-linear-gradient(
-      120deg,
+  background: repeating-linear-gradient(120deg,
       rgba(255, 255, 255, 0.32) 0px,
       rgba(255, 255, 255, 0.32) 24px,
       transparent 24px,
-      transparent 48px
-    );
+      transparent 48px);
 }
 
 .top-nav {
@@ -291,7 +289,7 @@ button {
 .email-chip:hover .email-value,
 .email-chip.copied .email-value {
   opacity: 1;
-  max-width: 280px;
+  max-width: var(--email-width, 0);
   min-width: var(--email-width, 0);
   margin-left: 8px;
 }
@@ -480,7 +478,7 @@ button {
   gap: 12px;
 }
 
-.legacy-block + .legacy-block {
+.legacy-block+.legacy-block {
   margin-top: 24px;
 }
 
@@ -531,6 +529,7 @@ button {
     opacity: 0;
     transform: translateY(16px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
