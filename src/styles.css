@@ -289,8 +289,8 @@ button {
 .email-chip:hover .email-value,
 .email-chip.copied .email-value {
   opacity: 1;
-  max-width: var(--email-width, 0);
-  min-width: var(--email-width, 0);
+  max-width: max(0px, calc(var(--email-width, 0) - 20px));
+  min-width: max(0px, calc(var(--email-width, 0) - 20px));
   margin-left: 8px;
 }
 
