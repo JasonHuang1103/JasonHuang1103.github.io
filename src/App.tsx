@@ -146,6 +146,7 @@ export default function App() {
               <button
                 type="button"
                 className={`link-chip email-chip${emailCopied ? " copied" : ""}`}
+                style={{ "--email-width": `${emailText.length}ch` } as React.CSSProperties}
                 onClick={() => {
                   navigator.clipboard?.writeText(emailText);
                   setEmailCopied(true);
@@ -154,11 +155,7 @@ export default function App() {
                 aria-label={`Copy email address ${emailText}`}
               >
                 <span className="email-label">Email</span>
-                <span
-                  className="email-value"
-                  style={{ minWidth: `${emailText.length}ch` }}
-                  aria-live="polite"
-                >
+                <span className="email-value" aria-live="polite">
                   {emailDisplay}
                 </span>
               </button>

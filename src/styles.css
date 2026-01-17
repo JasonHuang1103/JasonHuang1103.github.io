@@ -277,6 +277,7 @@ button {
   text-align: center;
   opacity: 0;
   max-width: 0;
+  min-width: 0;
   margin-left: 0;
 }
 
@@ -291,6 +292,7 @@ button {
 .email-chip.copied .email-value {
   opacity: 1;
   max-width: 280px;
+  min-width: var(--email-width, 0);
   margin-left: 8px;
 }
 
