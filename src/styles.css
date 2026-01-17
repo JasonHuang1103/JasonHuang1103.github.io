@@ -250,7 +250,7 @@ button {
   overflow: hidden;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 0;
   white-space: nowrap;
 }
 
@@ -266,13 +266,32 @@ button {
   box-shadow: 0 12px 20px rgba(37, 99, 235, 0.18);
 }
 
-.email-label {
+.email-label,
+.email-value {
   display: inline-block;
+  transition: opacity 0.4s ease, max-width 0.45s ease, margin 0.4s ease;
+  overflow: hidden;
 }
 
 .email-value {
-  display: inline-block;
   text-align: center;
+  opacity: 0;
+  max-width: 0;
+  margin-left: 0;
+}
+
+.email-chip:hover .email-label,
+.email-chip.copied .email-label {
+  opacity: 0;
+  max-width: 0;
+  margin-right: 0;
+}
+
+.email-chip:hover .email-value,
+.email-chip.copied .email-value {
+  opacity: 1;
+  max-width: 280px;
+  margin-left: 8px;
 }
 
 .about-card {

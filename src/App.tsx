@@ -145,7 +145,7 @@ export default function App() {
             {emailLink ? (
               <button
                 type="button"
-                className="link-chip email-chip"
+                className={`link-chip email-chip${emailCopied ? " copied" : ""}`}
                 onClick={() => {
                   navigator.clipboard?.writeText(emailText);
                   setEmailCopied(true);
