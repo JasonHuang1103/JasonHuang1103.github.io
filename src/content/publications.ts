@@ -18,7 +18,7 @@ export const publications: Publication[] = [
     venue: "ICLR",
     kind: "Conference",
     links: [
-      { label: "arXiv", href: "https://arxiv.org/abs/2509.21016v1" }
+      { label: "arXiv", href: "https://arxiv.org/abs/2509.21016v2" }
     ]
   },
   {
